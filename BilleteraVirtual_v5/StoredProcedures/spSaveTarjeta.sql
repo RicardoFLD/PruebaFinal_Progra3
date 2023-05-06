@@ -1,14 +1,11 @@
 USE [VBilletera]
-
 GO
+/****** Object:  StoredProcedure [dbo].[GetTarjetas]    Script Date: 6/5/2023 04:41:39 ******/
 SET ANSI_NULLS ON
 GO
-
 SET QUOTED_IDENTIFIER ON
 GO
-
-ALTER PROCEDURE [dbo].[spSaveTarjeta] 
-	
+CREATE PROCEDURE spSaveTarjeta
   @Foto varchar(50), 
   @Banco varchar(50),
   @Emisor varchar(50),
@@ -16,10 +13,10 @@ ALTER PROCEDURE [dbo].[spSaveTarjeta]
   @NumeroTarjeta int,
   @codigoCVV int,
   @fechaExp date
-
 AS
 BEGIN
+    SET NOCOUNT ON;
 
-INSERT INTO dbo.Tarjetas VALUES(@Foto, @Banco, @Emisor, @Dueño, @NumeroTarjeta, @codigoCVV , @fechaExp)
-
+    INSERT INTO Tarjetas(Foto, Banco, Emisor, Dueño, NumeroTarjeta,codigoCVV, fechaExp)
+    VALUES (  @Foto, @Banco, @Emisor, @Dueño,  @NumeroTarjeta, @codigoCVV, @fechaExp)
 END
