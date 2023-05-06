@@ -1,22 +1,25 @@
 USE [VBilletera]
 
 GO
-/****** Object:  StoredProcedure [dbo].[spSaveFavoriteBook]    Script Date: 23/03/2023 04:39:15 p. m. ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-
 ALTER PROCEDURE [dbo].[spSaveTarjeta] 
 	
-	@bookId int,
-	@Email varchar(100)
+  @Foto varchar(50), 
+  @Banco varchar(50),
+  @Emisor varchar(50),
+  @Dueño varchar(50), 
+  @NumeroTarjeta int,
+  @codigoCVV int,
+  @fechaExp date
 
 AS
 BEGIN
 
-INSERT INTO dbo.Tarjetas VALUES(@NumeroTa, @Email)
+INSERT INTO dbo.Tarjetas VALUES(@Foto, @Banco, @Emisor, @Dueño, @NumeroTarjeta, @codigoCVV , @fechaExp)
 
 END
