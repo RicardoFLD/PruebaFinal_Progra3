@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BilleteraVirtual_v5.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -32,17 +33,16 @@ namespace BilleteraVirtual_v5.Database
             {
                 List<SqlParameter> param = new List<SqlParameter>()
             {
-                new SqlParameter("@Foto", Billetera.Foto),
-                new SqlParameter("@Email", book.Session.email),
-                new SqlParameter("@Checkin", book.Checkin),
-                new SqlParameter("@Checkout", book.Checkout),
-                new SqlParameter("@Adults", book.Adults),
-                new SqlParameter("@Kids", book.Kids),
-                new SqlParameter("@Nights", book.Nights),
-                new SqlParameter("@Cost", book.Cost),
-                new SqlParameter("@Total", book.Total),
+                new SqlParameter("@Foto", Tarjeta.Foto),
+                new SqlParameter("@Banco", Tarjeta.Banco),
+                new SqlParameter("@Emisor", Tarjeta.Emisor),
+                new SqlParameter("@Dueño", Tarjeta.Dueño),
+                new SqlParameter("@NumeroTarjeta", Tarjeta.NumeroTarjeta),
+                new SqlParameter("@codigoCVV", Tarjeta.codigoCVV),
+                new SqlParameter("@fechaExp", Tarjeta.fechaExp),
+
             };
-                ExecuteQuery("[dbo].[spSaveBooking]", param);
+                ExecuteQuery("[dbo].[spSaveTarjeta]", param);
             }
 
             public DataTable ExecuteQuery(string storedProcedure, List<SqlParameter> param)

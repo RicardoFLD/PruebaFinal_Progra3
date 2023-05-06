@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BilleteraVirtual_v5.Models
 {
-    public class Billetera
+    public class Tarjeta
     {
         public string Foto { get; set; }
         public string Banco { get; set; }
